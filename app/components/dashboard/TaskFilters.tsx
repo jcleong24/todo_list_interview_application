@@ -1,14 +1,12 @@
-"use client";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function TaskForm() {
+export function TaskFilters() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Add Task</CardTitle>
+        <CardTitle>Filter Task</CardTitle>
       </CardHeader>
-      <CardContent>Task form will go here</CardContent>
+      <CardContent>Search and filters will go here</CardContent>
     </Card>
   );
 }

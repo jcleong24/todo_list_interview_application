@@ -1,5 +1,5 @@
-'use client';
+"use client";
 
-export default function FilterToolbar() {
-    return <div>Filter toolbar</div>
+export function FilterToolbar() {
+  return <div>Filter toolbar</div>;
 }
