@@ -3,14 +3,16 @@
 import React from "react";
 
 import { useTodos } from "./hooks/useTodos";
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Download, Upload } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Download, Upload } from "lucide-react";
 
 // Clean sub-component imports
 import TaskForm from "./components/dashboard/TaskForm";
-import FilterToolbar from "./components/dashboard/FilterToolbar";
-import TaskTable from "./components/dashboard/TaskTable";
+import { DashboardHeader } from "./components/dashboard/DashboardHeader";
+import { TaskSummary } from "./components/dashboard/TaskSummary";
+import { TaskFilters } from "./components/dashboard/TaskFilters";
+import { TaskList } from "./components/dashboard/TaskList";
 
 export default function TodoDashboard() {
   const {
@@ -30,31 +32,20 @@ export default function TodoDashboard() {
   } = useTodos();
 
   return (
-    <main className="min-h-screen bg-muted/40 p-4 md:p-6">
-      <Card>
-        <CardContent className="flex flex-col gap-4 p-4 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h1 className="text-2xl font-semibold tracking-tight">
-              Task Dashboard
-            </h1>
-            <p className="text-sm text-muted-foreground">
-              Manage your tasks, priorities, and deadlines.
-            </p>
-          </div>
+    <main className="min-h-screen bg-muted/40">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 p-4 md:p-8">
+        <DashboardHeader />
+        <TaskSummary />
 
-          <div className="flex flex-wrap gap-2">
-            <Button variant="outline">
-              <Upload className="mr-2 h-4 w-4" />
-              Import CSV
-            </Button>
+        <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
+          <TaskForm />
 
-            <Button>
-              <Download className="mr-2 h-4 w-4" />
-              Export Excel
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+          <section className="flex flex-col gap-4">
+            <TaskFilters />
+            <TaskList />
+          </section>
+        </div>
+      </div>
     </main>
   );
 }
