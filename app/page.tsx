@@ -15,6 +15,7 @@ import { TaskFilters } from "./components/dashboard/TaskFilters";
 import { TaskList } from "./components/dashboard/TaskList";
 import { TodoControls } from "./components/dashboard/TodoControls";
 import { TodoList } from "./components/dashboard/TodoList";
+import { todoItems } from "./data/dummy_todos";
 
 export default function TodoDashboard() {
   const {
@@ -38,7 +39,7 @@ export default function TodoDashboard() {
       <section className="mx-auto flex max-w-3xl flex-col gap-6">
         <DashboardHeader />
         <TodoControls />
-        <TodoList />
+        <TodoList todos={todoItems} />
       </section>
     </main>
   );

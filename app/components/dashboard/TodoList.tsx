@@ -1,11 +1,17 @@
+import type { TodoItem as Todo } from "@/app/types/todo";
 import { TodoItem } from "./TodoItem";
+import { todo } from "node:test";
 
-export function TodoList() {
+type TodoListProps = {
+  todos: Todo[];
+};
+
+export function TodoList({ todos }: TodoListProps) {
   return (
     <div className="flex flex-col gap-4 rounded-xl bg-muted p-4">
-      <TodoItem title="Create a React project" time="5:23 AM, 01/06/2022" />
-      <TodoItem title="Learn React" time="5:22 AM, 01/06/2022" />
-      <TodoItem title="Create a Todo App" time="5:21 AM, 01/06/2022" completed />
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
+      ))}
     </div>
   );
 }

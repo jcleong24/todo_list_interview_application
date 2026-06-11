@@ -1,27 +1,27 @@
 import { Pencil, Trash2 } from "lucide-react";
-
+import type { TodoItem as Todo } from "@/app/types/todo";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
 
 type TodoItemProps = {
-  title: string;
-  time: string;
-  completed?: boolean;
+  todo: Todo;
 };
 
-export function TodoItem({ title, time, completed }: TodoItemProps) {
+export function TodoItem({ todo }: TodoItemProps) {
+  const isCompleted = todo.status === "completed";
+
   return (
     <div className="flex items-center justify-between gap-4 rounded-lg bg-background p-4">
       <div className="flex items-center gap-3">
-        <Checkbox checked={completed} />
+        <Checkbox checked={isCompleted} />
 
         <div>
-          <p className={completed ? "font-medium line-through text-muted-foreground" : "font-medium"}>
-            {title}
+          <p className={isCompleted ? "font-medium line-through text-muted-foreground" : "font-medium"}>
+            {todo.title}
           </p>
           <p className="text-sm text-muted-foreground">
-            {time}
+            {todo.createdAt}
           </p>
         </div>
       </div>
