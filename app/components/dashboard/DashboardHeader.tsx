@@ -6,7 +6,7 @@ export function DashboardHeader() {
     <header className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">
-          Task Dashboard
+          Todo List Dashboard
         </h1>
         <p className="text-sm text-muted-foreground">
           Manage your tasks, deadlines, and priorities.
