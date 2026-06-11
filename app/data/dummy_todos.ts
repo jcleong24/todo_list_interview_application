@@ -1,16 +1,5 @@
 import type { TodoItem } from "@/app//types/todo";
 
-// export interface TodoItem {
-//     id: string;
-//     title: string;
-//     description: string;
-//     isCompleted: boolean;
-//     dueDate: string;
-//     category: Category;
-//     createdAt: string;
-//     status: TodoStatus;
-// }
-
 export const todoItems: TodoItem[] = [
   {
     id: "1",
