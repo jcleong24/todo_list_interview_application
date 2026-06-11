@@ -5,7 +5,6 @@ export interface TodoItem {
     id: string;
     title: string;
     description: string; 
-    isCompleted: boolean;
     category: Category;
     createdAt: string;
     status: TodoStatus;
