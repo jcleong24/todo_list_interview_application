@@ -2,6 +2,7 @@ import { Pencil, Trash2 } from "lucide-react";
 import type { TodoItem as Todo } from "@/app/types/todo";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Badge } from "@/components/ui/badge";
 
 type TodoItemProps = {
   todo: Todo;
@@ -20,16 +21,27 @@ export function TodoItem({ todo, onToggleTodo, onDeleteTodo }: TodoItemProps) {
           onCheckedChange={() => onToggleTodo(todo.id)}
         />
 
-        <div>
-          <p
-            className={
-              isCompleted
-                ? "font-medium line-through text-muted-foreground"
-                : "font-medium"
-            }
-          >
-            {todo.title}
-          </p>
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            <p
+              className={
+                isCompleted
+                  ? "font-medium line-through text-muted-foreground"
+                  : "font-medium"
+              }
+            >
+              {todo.title}
+            </p>
+
+            <Badge variant="outline">{todo.category}</Badge>
+          </div>
+
+          {todo.description && (
+            <p className="mt-1 text-sm text-muted-foreground">
+              {todo.description}
+            </p>
+          )}
+          
           <p className="text-sm text-muted-foreground">{todo.createdAt}</p>
         </div>
       </div>
