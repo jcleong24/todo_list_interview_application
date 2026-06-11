@@ -13,6 +13,8 @@ import { DashboardHeader } from "./components/dashboard/DashboardHeader";
 import { TaskSummary } from "./components/dashboard/TaskSummary";
 import { TaskFilters } from "./components/dashboard/TaskFilters";
 import { TaskList } from "./components/dashboard/TaskList";
+import { TodoControls } from "./components/dashboard/TodoControls";
+import { TodoList } from "./components/dashboard/TodoList";
 
 export default function TodoDashboard() {
   const {
@@ -32,20 +34,12 @@ export default function TodoDashboard() {
   } = useTodos();
 
   return (
-    <main className="min-h-screen bg-muted/40">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 p-4 md:p-8">
+    <main className="min-h-screen bg-muted/40 px-4 py-10">
+      <section className="mx-auto flex max-w-3xl flex-col gap-6">
         <DashboardHeader />
-        <TaskSummary />
-
-        <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
-          <TaskForm />
-
-          <section className="flex flex-col gap-4">
-            <TaskFilters />
-            <TaskList />
-          </section>
-        </div>
-      </div>
+        <TodoControls />
+        <TodoList />
+      </section>
     </main>
   );
 }
